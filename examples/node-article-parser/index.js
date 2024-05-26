@@ -37,6 +37,7 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/poll', async (req, res) => {
+  console.log("heart beat")
   return res.json({
     message: "polling..."
   })
