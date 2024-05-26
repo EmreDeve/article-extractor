@@ -12,11 +12,13 @@ const meta = {
 
 app.get('/', async (req, res) => {
   const url = req.query.url
+  console.log('Extracting from url: ${url}')
   if (!url) {
     return res.json(meta)
   }
   try {
     const data = await extract(url)
+    console.log('Extraction succeed! Url: ${url}')
     return res.json({
       error: 0,
       message: 'article has been extracted successfully',
@@ -24,6 +26,7 @@ app.get('/', async (req, res) => {
       meta,
     })
   } catch (err) {
+    console.log('Failed to extract from url: ${url}')
     return res.json({
       error: 1,
       message: err.message,
