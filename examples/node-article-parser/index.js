@@ -36,6 +36,12 @@ app.get('/', async (req, res) => {
   }
 })
 
+app.get('/poll', async (req, res) => {
+  return res.json({
+    message: "polling..."
+  })
+})
+
 app.listen(3100, () => {
   console.log('Server is running at http://localhost:3100')
 })
